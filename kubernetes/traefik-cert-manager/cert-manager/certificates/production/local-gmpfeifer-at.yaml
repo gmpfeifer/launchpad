@@ -2,14 +2,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: local-example-com
+  name: local-gmpfeifer-at
   namespace: default
 spec:
-  secretName: local-example-com-tls
+  secretName: local-gmpfeifer-at-tls
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "*.local.example.com"
+  commonName: "*.local.gmpfeifer.at"
   dnsNames:
-  - "local.example.com"
-  - "*.local.example.com"
+  - "local.gmpfeifer.at"
+  - "*.local.gmpfeifer.at"

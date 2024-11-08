@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gmpfeifer-at
+  namespace: default
+spec:
+  secretName: gmpfeifer-at-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: "*.gmpfeifer.at"
+  dnsNames:
+  - "gmpfeifer.at"
+  - "*.gmpfeifer.at"

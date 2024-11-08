@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: local-gmpfeifer-at
+  namespace: default
+spec:
+  secretName: local-gmpfeifer-at-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: "*.local.gmpfeifer.at"
+  dnsNames:
+  - "local.gmpfeifer.at"
+  - "*.local.gmpfeifer.at"

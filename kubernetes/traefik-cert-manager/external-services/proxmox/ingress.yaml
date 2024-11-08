@@ -1,0 +1,29 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  namespace: default
+  annotations: 
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`www.pve.gmpfeifer.at`)
+      kind: Rule
+      services:
+        - name: proxmox
+          port: 8006
+    - match: Host(`pve.gmpfeifer.at`)
+      kind: Rule
+      services:
+        - name: proxmox
+          port: 8006
+      middlewares:
+        - name: default-headers
+  tls:
+    secretName: gmpfeifer-at-tls
+
+# not in use - just as an example
+
